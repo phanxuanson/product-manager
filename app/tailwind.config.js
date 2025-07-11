@@ -4,12 +4,11 @@ module.exports = {
       extend: {
         fontFamily: {
           primary: ['Open Sans', 'sans-serif'],
-          tertiary: ['Montserrat', 'sans-serif'],
-          secondary: ['Regular', 'sans-serif'],
+          secondary: ['Montserrat', 'sans-serif'],
+          tertiary: ['Cabin', 'sans-serif'],
+          quaternary: ['HighVoltage Rough', 'sans-serif'],
         },
-        lineHeight: {
-
-        },
+        
         colors: {
           primary: '#00072B',
           secondary: '#7FC008',
