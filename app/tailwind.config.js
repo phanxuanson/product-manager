@@ -16,6 +16,7 @@ module.exports = {
           quaternary: '#303030',
           neutral: '#475467',
           warning: '#DB303F',
+          title: '#0C0033',
         },
       },
     },
