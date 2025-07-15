@@ -1,0 +1,17 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: #00072B;
+  --color-secondary: #7FC008;
+  --color-tertiary: #DB303F;
+  --color-quaternary: #303030;
+  --color-neutral: #475467;
+  --color-warning: #DB303F;
+  --color-title: #0C0033;
+
+  --font-primary: 'Open Sans', sans-serif;
+  --font-secondary: 'Montserrat', sans-serif;
+  --font-tertiary: 'Cabin', sans-serif;
+  --font-quaternary: 'HighVoltage Rough', sans-serif;
+  
+}

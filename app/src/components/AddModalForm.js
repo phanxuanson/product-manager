@@ -1,21 +1,27 @@
+import { iconData } from '../mock/images-data';
+
+const { avatar, chevron, close, upload } = iconData;
 const AddProductForm = () => {
   const wrapperModal = document.createElement('div');
-  wrapperModal.className = 'wrapperModal flex items-center justify-center min-h-screen p-4';
+  wrapperModal.className =
+    'wrapperModal flex items-center justify-center min-h-screen p-4';
+
+    console.log('Icon Data:', { avatar, chevron, close, upload });
   wrapperModal.innerHTML = `
     <div class="container-modal bg-white rounded-2xl shadow-[0_0_20px_rgba(0,0,0,0.1)] max-w-md w-full p-6 relative" style="box-shadow: 0 0 20px rgba(0,0,0,0.1)">
       <h2 class="title-modal text-primary text-lg font-semibold font-primary mb-6">Add new product</h2>
       <button aria-label="Close" class="absolute top-6 right-6 text-gray-500 hover:text-primary focus:outline-none">
-        <img src="${trashIcon}" alt="trash-icon.svg" />
+        <img src="${close.url}" alt="${close.alt}" />
       </button>
       <form class="space-y-5">
         <div class="flex items-center space-x-6">
             <div class="flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 text-gray-400 hover:text-gray-600 focus:outline-none" aria-label="Add image">
-              <img src=${trashIcon} alt="upload-icon" />
+              <img src="${avatar.url}" alt="${avatar.alt}" />
             </div>
             <label for="upload" class="flex flex-col items-center justify-center flex-1 h-16 border border-[#DFE2E9] rounded-xl cursor-pointer hover:border-gray-400">
               <div class="flex flex-col items-center justify-center space-y-1">
                 <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
-                  <i class="fas fa-cloud-upload-alt text-gray-400"></i>
+                  <img src="${upload.url}" alt="${upload.alt}" />
                 </div>
                 <span class="text-[#6941C6] text-sm select-none font-semibold font-primary">Click to upload</span>
               </div>
@@ -47,18 +53,23 @@ const AddProductForm = () => {
                   <option>Sold out</option>
                 </select>
                 <div class="product-status-icon pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-                  <img src="../assets/images/arrow-down.svg" alt="arrow-down.svg" class="absolute right-3 top-1/2 transform -translate-y-1/2" />
+                  <img src="${chevron.url}" class="absolute right-3 top-1/2 transform -translate-y-1/2" />
                 </div>
               </div>
             </div>
             <div class="flex-1">
               <label for="types" class="block text-primary text-sm font-bold mb-1">Types</label>
-              <select id="types" class="appearance-none w-full border border-[#DFE2E9] rounded-lg px-3 py-2 text-primary focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600">
-                <option>Ring</option>
-                <option>Bravo</option>
-                <option>Alfa</option>
-                <option>Gold</option>
-              </select>
+              <div class="type-status relative">
+                <select id="types" class="appearance-none w-full border border-[#DFE2E9] rounded-lg px-3 py-2 text-primary focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600">
+                  <option>Ring</option>
+                  <option>Bravo</option>
+                  <option>Alfa</option>
+                  <option>Gold</option>
+                </select>
+                <div class="product-status-icon pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                  <img src="${chevron.url}" class="absolute right-3 top-1/2 transform -translate-y-1/2" />
+                </div>
+              </div>
             </div>
           </div>
   
