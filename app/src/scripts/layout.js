@@ -1,6 +1,6 @@
 import AddModalForm from '../components/AddModalForm.js';
 import DeleteModal from '../components/DeleteModal.js';
-
+import ConfirmModal from '../components/ConfirmModal.js';
 class Layout {
   constructor(rootId = 'product-manager') {
     this.root = document.getElementById(rootId);
@@ -21,10 +21,16 @@ class Layout {
     this.root.appendChild(modalDeleteProduct);
   }
 
+  renderConfirmModal() {
+    const confirmModal = ConfirmModal(); 
+    this.root.appendChild(confirmModal);
+  }
+
   renderAll() {
     this.renderHeader();
     this.renderAddModalForm();
     this.renderDeleteModal();
+    this.renderConfirmModal();
   }
 }
 
