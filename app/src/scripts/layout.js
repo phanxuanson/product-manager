@@ -1,4 +1,5 @@
 import AddModalForm from '../components/AddModalForm.js';
+import DeleteModal from '../components/DeleteModal.js';
 
 class Layout {
   constructor(rootId = 'product-manager') {
@@ -16,8 +17,8 @@ class Layout {
   }
 
   renderDeleteModal() {
-    // const modal = ModalDelete();
-    // this.root.appendChild(modal);
+    const modalDeleteProduct = DeleteModal();
+    this.root.appendChild(modalDeleteProduct);
   }
 
   renderAll() {
