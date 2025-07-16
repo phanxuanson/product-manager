@@ -7,7 +7,7 @@ const DeleteModal = () => {
   deleteModalWrapper.className = 'deleteModalWrapper flex justify-center';
   deleteModalWrapper.innerHTML = `<div class="relative max-w-sm w-full bg-white rounded-2xl shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1),0_10px_10px_-5px_rgba(0,0,0,0.04)] p-6">
     <!-- Close icon top right -->
-    <div class="absolute top-5 right-5 text-[#475569] hover:text-[#334155] focus:outline-none">
+    <div class="absolute top-5 right-5 focus:outline-none">
       <img src="${close.url}" alt="${close.alt}" class="w-6 h-6 cursor-pointer" />
     </div>
 
@@ -20,7 +20,7 @@ const DeleteModal = () => {
     <h2 class="text-primary font-bold text-lg mb-1.5">
       Delete product
     </h2>
-    <p class="text-[#475569] text-sm mb-[53px]">
+    <p class="text-neutral text-sm mb-[53px]">
       Are you sure you want to delete this product? This action cannot be
       undone.
     </p>

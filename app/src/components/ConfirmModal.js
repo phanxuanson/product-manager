@@ -15,8 +15,8 @@ const ConfirmModal = () => {
 				<div class="header-confirm-modal">
 					<img src="${trash.url}" alt="${trash.alt}" class="w-6 h-6" />
 					<div class="text-confirm-modal">
-					<h2 class="text-neutral font-primary font-normal text-sm">Ooops!</h2>
-					<p class="text-[#6b7280] text-sm leading-5">Something went wrong</p>
+					<h2 class="text-primary font-bold text-lg">Ooops!</h2>
+					<p class="text-neutral text-sm leading-5">Something went wrong</p>
 				</div>
 				</div>
 			</div>
