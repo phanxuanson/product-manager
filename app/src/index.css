@@ -13,6 +13,7 @@
   --font-primary: 'Open Sans', sans-serif;
   --font-secondary: 'Montserrat', sans-serif;
   --font-tertiary: 'Cabin', sans-serif;
-  --font-quaternary: 'HighVoltage Rough', sans-serif;
-
+  --font-quaternary: 'HighVoltage Rough', sans-serif; 
 }
+
+@import './styles/addModalForm.css';
