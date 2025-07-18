@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href="../assets/fonts/HighVoltage Rough.woff2" rel="font/woff2">
+  <link rel="stylesheet" href="../index.css">
+  <link rel="stylesheet" href="../styles/loginForm.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="login" class="flex flex-col justify-start items-center pt-24">
+    <form class="w-full max-w-md">
+      <h2 class="text-primary font-primary font-semibold text-lg mb-6">Sign Up</h2>
+      <input type="email" id="email" placeholder="Email" />
+      <input type="password" id="password" placeholder="Password" />
+      <input type="password" id="confirm-password" placeholder="Confirm Password" />
+      <input type="text" id="firt-name" placeholder="First Name" />
+      <input type="text" id="last-name" placeholder="Last Name" class="w-full" />
+      <button id="btn-signUp">Sign Up</button>
+    </form>
+    <div class="w-full max-w-md flex justify-end gap-4 mt-20">
+      <button id="btn-back">Back</button>
+      <button id="btn-submit" type="submit">Submit</button>
+    </div>
+  </div>
+  <script type="module" src="../scripts/login.js"></script>
+</body>
+
+</html>
