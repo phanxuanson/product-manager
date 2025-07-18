@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.delete-modal-content,
+.confirm-modal-deletion {
+    @apply relative max-w-sm w-full bg-white rounded-2xl p-6;
+}
+
+.custom-shadow {
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.btn-close-delete-modal {
+    @apply absolute mt-[15px] right-5 focus:outline-none;
+}
+
+.trash-icon {
+    @apply  w-16 h-16 rounded-full flex items-center justify-center;
+}
+
+.cancel-button-delete {
+    @apply border border-[#D0D5DD] text-primary hover:bg-[#F1F5F9] transition;
+}
+
+.button-delete-confirm {
+    @apply bg-warning text-white hover:bg-[#B91C1C] transition;
+}
+
+.cancel-button-delete,
+.button-delete-confirm{
+    @apply w-full font-primary font-semibold text-sm px-2 py-4 rounded-lg; 
+}
+
+.btn-close-confirm-modal {
+    @apply w-full bg-warning text-white font-primary font-semibold rounded-lg py-4 text-center text-sm font-normal hover:bg-[#b91c1c] focus:outline-none
+}
+
+.delete-modal,
+.confirm-modal-deletion {
+    @apply hidden;
+}

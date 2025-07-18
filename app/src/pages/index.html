@@ -19,16 +19,15 @@
 
 			<!-- Title page -->
 			<h1 class="text-primary font-bold font-primary text-6xl mt-10">Management</h1>
-
+			
 			<!-- Add product button -->
 			<div class="add-button-wrapper">
 				<button id="add-product-button">
 					<span class="add-button-text">Add product</span>
 				</button>
 			</div>
-		</div>
 
-		<!-- Modal add new product -->
+			<!-- Modal add new product -->
 		<div class="container-modal">
 			<h2 class="title-modal">Add new product</h2>
 			<button id="btn-close-modal" aria-label="Close">
@@ -106,6 +105,64 @@
 					<button id="confirm-button" type="submit">Confirm</button>
 				</div>
 			</form>
+		</div>
+		
+			<!-- Modal Delete product -->
+		<div class="delete-modal max-[400xp]">
+			<div class="delete-modal-content custom-shadow">
+				<div class="delete-modal-header mb-6">
+					<!-- Close icon top right -->
+					<button class="btn-close-delete-modal">
+						<img src="../assets/images/close-icon.svg" alt="close" class="w-6 h-6 cursor-pointer" />
+					</button>
+
+					<!-- Trash icon with pink glow circle -->
+					<div class="trash-icon">
+						<img src="../assets/images/trash-icon.svg" alt="trash" class="cursor-pointer" />
+					</div>
+
+					<!-- Text content -->
+					<h2 class="text-primary font-bold text-lg mb-1.5">
+						Delete product
+					</h2>
+					<p class="text-neutral text-sm">
+						Are you sure you want to delete this product? This action cannot be
+						undone.
+					</p>
+				</div>
+				<!-- Buttons -->
+				<div class="flex space-x-4">
+					<button class="cancel-button-delete">
+						Cancel
+					</button>
+					<button class="button-delete-confirm">
+						Delete
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal Confirm product deletion -->
+		<div class="confirm-modal-deletion custom-shadow">
+			<div class="delete-modal-header mb-6">
+				<!-- Close icon top right -->
+				<button class="btn-close-delete-modal">
+					<img src="../assets/images/close-icon.svg" alt="close" class="w-6 h-6 cursor-pointer" />
+				</button>
+
+				<!-- Trash icon with pink glow circle -->
+				<div class="trash-icon">
+					<img src="../assets/images/trash-icon.svg" alt="trash" class="cursor-pointer" />
+				</div>
+
+				<!-- Text content -->
+				<h2 class="text-primary font-bold text-lg mb-1.5">
+					Ooops!
+				</h2>
+				<p class="text-neutral text-sm">Something went wrong</p>
+			</div>
+			<button class="btn-close-confirm-modal">Close</button>
+		</div>
 		</div>
 	</div>
 </body>
