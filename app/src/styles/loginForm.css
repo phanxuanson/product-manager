@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 #login input {
-  @apply w-full mb-4 px-4 py-2 border-2 border-[#666666] rounded-md  text-base placeholder:text-[#171717] placeholder:font-quaternary placeholder:text-base placeholder:font-normal;
+  @apply w-full px-4 py-2 border-2 border-[#666666] rounded-md  text-base placeholder:text-[#171717] placeholder:font-quaternary placeholder:text-base placeholder:font-normal;
 }
 
 #btn-signUp,
@@ -19,4 +19,16 @@
 #btn-submit,
 #btn-back {
   @apply cursor-pointer;
+}
+
+.input-box {
+  @apply mb-4;
+}
+
+#error-email,
+#error-password,
+#error-confirm,
+#error-firstname,
+#error-lastname {
+  @apply text-warning text-sm mt-3 font-primary font-semibold;
 }
