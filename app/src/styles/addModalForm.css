@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container-modal {
+  @apply hidden bg-white rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.1)] max-w-md w-full p-6 relative;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+#add-product-button {
+ @apply w-[168px] border border-secondary rounded-md font-sans hover:bg-[#e6f2d9] focus:outline-none focus:ring-2 focus:ring-[#8bc34a] px-6 py-[9px];
+}
+
+.add-button-text {
+    @apply text-base font-semibold font-primary text-secondary;
+}
+
+.add-button-wrapper {
+    @apply flex justify-end mt-22;
+}
+
+.title-modal {
+    @apply text-primary text-lg font-semibold font-primary mb-6;
+}
+
+#btn-close-modal {
+    @apply absolute top-6 right-6 text-gray-500 hover:text-primary focus:outline-none
+}
+
+.form-modal-upload {
+    @apply flex flex-col items-center justify-center flex-1 h-26 border border-[#D0D5DD] rounded-xl cursor-pointer hover:border-gray-400;
+}
+
+.form-modal-upload-text {
+    @apply text-[#6941C6] text-sm select-none font-semibold font-primary;
+}
+
+form input,
+select,
+#cancel-button {
+    @apply border rounded-lg border-[#D0D5DD]
+}
+
+.form-input-name,
+.form-input-quantity,
+.form-input-price {
+    @apply w-full mb-5.5;
+}
+
+.form-input-name label,
+.form-input-quantity label,
+.form-input-price label,
+.form-input-brand label,
+label[for="status"],
+label[for="types"] {
+    @apply block text-primary text-sm font-bold mb-1 font-primary;
+}
+
+.product-status-icon {
+    @apply pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3
+}
+
+#name,
+#quantity,
+#price {
+    @apply w-full border rounded-lg px-3 py-2 placeholder-[#C9CFDA] focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600;
+}
+
+#quantity,
+#price {
+    @apply text-[#667085];
+}
+
+#status-product-select,
+#types-product-select {
+    @apply appearance-none w-full border rounded-lg px-3 py-2 text-primary focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600;
+}
+
+#brand {
+    @apply w-full border rounded-md px-3 py-2 text-gray-400 placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600;
+}
+
+#cancel-button,
+#confirm-button {
+    @apply rounded-lg border font-primary font-semibold text-sm focus:outline-none ;
+}
+
+#confirm-button {
+    @apply bg-secondary text-white hover:bg-lime-700 px-6 py-[15px];
+}
+
+#cancel-button {
+    @apply border hover:bg-gray-50 px-[23px] py-[13px];
+}
