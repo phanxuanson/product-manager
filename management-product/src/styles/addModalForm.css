@@ -7,7 +7,7 @@
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
-#add-product-button {
+.btn-show-modal-form {
  @apply w-[168px] border border-secondary rounded-md font-sans hover:bg-[#e6f2d9] focus:outline-none focus:ring-2 focus:ring-[#8bc34a] px-6 py-[9px];
 }
 
@@ -23,7 +23,7 @@
     @apply text-primary text-lg font-semibold font-primary mb-6;
 }
 
-#btn-close-modal {
+.btn-close-modal {
     @apply absolute top-6 right-6 text-gray-500 hover:text-primary focus:outline-none
 }
 
@@ -37,7 +37,7 @@
 
 form input,
 select,
-#cancel-button {
+.btn-cancel-button {
     @apply border rounded-lg border-[#D0D5DD]
 }
 
@@ -60,35 +60,35 @@ label[for="types"] {
     @apply pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3
 }
 
-#name,
-#quantity,
-#price {
+.name,
+.quantity,
+.price {
     @apply w-full border rounded-lg px-3 py-2 placeholder-[#C9CFDA] focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600;
 }
 
-#quantity,
-#price {
+.quantity,
+.price {
     @apply text-[#667085];
 }
 
-#status-product-select,
-#types-product-select {
+.status-product-select,
+.types-product-select {
     @apply appearance-none w-full border rounded-lg px-3 py-2 text-primary focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600;
 }
 
-#brand {
+.brand {
     @apply w-full border rounded-md px-3 py-2 text-gray-400 placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600;
 }
 
-#cancel-button,
-#confirm-button {
+.btn-cancel-butto,
+.btn-confirm-button {
     @apply rounded-lg border font-primary font-semibold text-sm focus:outline-none ;
 }
 
-#confirm-button {
+.btn-confirm-button {
     @apply bg-secondary text-white hover:bg-lime-700 px-6 py-[15px];
 }
 
-#cancel-button {
+.btn-cancel-button {
     @apply border hover:bg-gray-50 px-[23px] py-[13px];
 }
