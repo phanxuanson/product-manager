@@ -30,7 +30,7 @@
 			<!-- Modal add new product -->
 		<div class="container-modal">
 			<h2 class="title-modal">Add new product</h2>
-			<button id="btn-close-modal" aria-label="Close">
+			<button class="btn-close-modal" aria-label="Close">
 				<img src="../assets/images/close-icon.svg" alt="Close" />
 			</button>
 			<form class="space-y-5">
@@ -45,7 +45,7 @@
 							</div>
 							<span class="form-modal-upload-text">Click to upload</span>
 						</div>
-						<input type="file" id="upload" class="hidden" />
+						<input type="file" class="upload" />
 					</label>
 				</div>
 
@@ -101,8 +101,8 @@
         </div>
 
 				<div class="flex justify-end space-x-3 mt-4">
-					<button class="btn-cancel-button" type="button">Cancel</button>
-					<button class="btn-confirm-button" type="submit">Confirm</button>
+					<button class="btn-cancel" type="button">Cancel</button>
+					<button class="btn-confirm" type="submit">Confirm</button>
 				</div>
 			</form>
 		</div>
@@ -132,10 +132,10 @@
 				</div>
 				<!-- Buttons -->
 				<div class="flex space-x-4">
-					<button class="cancel-button-delete">
+					<button class="btn-cancel-deleteModal">
 						Cancel
 					</button>
-					<button class="button-delete-confirm">
+					<button class="btn-confirm-deleteModal">
 						Delete
 					</button>
 				</div>

@@ -19,16 +19,16 @@
     @apply  w-16 h-16 rounded-full flex items-center justify-center;
 }
 
-.cancel-button-delete {
+.btn-cancel-deleteModal {
     @apply border border-[#D0D5DD] text-primary hover:bg-[#F1F5F9] transition;
 }
 
-.button-delete-confirm {
+.btn-confirm-deleteModal {
     @apply bg-warning text-white hover:bg-[#B91C1C] transition;
 }
 
-.cancel-button-delete,
-.button-delete-confirm{
+.btn-cancel-deleteModal,
+.btn-confirm-deleteModal{
     @apply w-full font-primary font-semibold text-sm px-2 py-4 rounded-lg; 
 }
 

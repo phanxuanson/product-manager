@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .container-modal {
-  @apply hidden bg-white rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.1)] max-w-md w-full p-6 relative;
+  @apply hidden rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.1)] max-w-md w-full p-6 relative;
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
@@ -25,6 +25,10 @@
 
 .btn-close-modal {
     @apply absolute top-6 right-6 text-gray-500 hover:text-primary focus:outline-none
+}
+
+.upload {
+    @apply hidden
 }
 
 .form-modal-upload {
@@ -80,15 +84,15 @@ label[for="types"] {
     @apply w-full border rounded-md px-3 py-2 text-gray-400 placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-purple-600;
 }
 
-.btn-cancel-butto,
-.btn-confirm-button {
+.btn-cancel,
+.btn-confirm {
     @apply rounded-lg border font-primary font-semibold text-sm focus:outline-none ;
 }
 
-.btn-confirm-button {
+.btn-confirm {
     @apply bg-secondary text-white hover:bg-lime-700 px-6 py-[15px];
 }
 
-.btn-cancel-button {
+.btn-cancel {
     @apply border hover:bg-gray-50 px-[23px] py-[13px];
 }
