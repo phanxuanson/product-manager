@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href="../assets/fonts/HighVoltage Rough.woff2" rel="font/woff2">
+  <link rel="stylesheet" href="../index.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="login" class="flex flex-col justify-start items-center pt-24">
+    <form class="w-full max-w-md">
+      <h2 class="text-primary font-primary font-semibold text-lg mb-6">Sign In</h2>
+      <div class="input-box">
+        <input type="email" class="email" placeholder="Email" />
+        <p class="error-message"></p>
+      </div>
+      <div class="input-box">
+        <input type="password" class="password" placeholder="Password" />
+        <p class="error-message"></p>
+      </div>
+      <button class="btn-submit">Submit</button>
+    </form>
+  </div>
+  <script type="module" src="../scripts/login.js"></script>
+</body>
+
+</html>
