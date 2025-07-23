@@ -1,6 +1,6 @@
 import { isValidEmail, isValidPassword } from '../constants/regex.js';
-import { MESSAGES_ERROR } from '../constants/messenger.js';
-import { userData } from '../constants/user-data.js';
+import { MESSAGES } from '../constants/messenger.js';
+import { USER_DATA } from '../constants/user-data.js';
 
 class LoginForm {
   constructor(formSelector) {
@@ -47,12 +47,12 @@ class LoginForm {
 
     const user = this.verifyUser(email);
     if (!user) {
-      this.emailError.textContent = MESSAGES_ERROR.EMAIL_NOT_EXIST;
+      this.emailError.textContent = MESSAGES.EMAIL_NOT_EXIST;
       return;
     }
 
     if (user.password !== password) {
-      this.passwordError.textContent = MESSAGES_ERROR.PASSWORD_INCORRECT;
+      this.passwordError.textContent = MESSAGES.PASSWORD_INCORRECT;
       return;
     }
 
@@ -62,8 +62,7 @@ class LoginForm {
   // Validate email
   validateEmail = (email) => {
     if (!isValidEmail(email)) {
-      this.emailError.textContent = MESSAGES_ERROR.EMAIL_NOT_FORMAT;
-      return false;
+      this.emailError.textContent = MESSAGES.EMAIL_NOT_FORMAT;
     }
     return true;
   };
@@ -71,15 +70,14 @@ class LoginForm {
   // Validate password
   validatePassword = (password) => {
     if (!isValidPassword(password)) {
-      this.passwordError.textContent = MESSAGES_ERROR.PASSWORD_NOT_FORMAT;
-      return false;
+      this.passwordError.textContent = MESSAGES.PASSWORD_NOT_FORMAT;
     }
     return true;
   };
 
   // Verify user credentials
-  verifyUser = (email, password) => {
-    return userData.find(user => user.email === email);
+  verifyUser = (email) => {
+    return USER_DATA.find(user => user.email === email);
   };
 
   // Redirect to dashboard
