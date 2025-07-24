@@ -3,4 +3,4 @@ export const isValidEmail = (email) => {
   return regex.test(email);
 };
 
-export const isValidPassword = (password) => password.length >= 6;
+export const isValidPassword = (password) => typeof password === 'string' && password.trim().length >= 6;
