@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#login input {
+  @apply w-full px-4 py-2 border-2 border-[#666666] rounded-md text-base placeholder:text-[#171717] placeholder:font-quaternary placeholder:text-base placeholder:font-normal;
+}
+
+.btn-submit {
+  @apply bg-[#0066cc] font-tertiary font-medium text-white text-lg px-5 py-2 cursor-pointer;
+}
+
+.input-box {
+  @apply mb-4;
+}
+
+.error-message {
+  @apply text-warning text-sm mt-3 font-primary font-semibold;
+}
