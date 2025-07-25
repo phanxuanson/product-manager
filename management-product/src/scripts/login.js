@@ -5,37 +5,36 @@ import { USER_DATA } from '../constants/user-data.js';
 class LoginForm {
   constructor(formSelector) {
     this.form = document.querySelector(formSelector);
-    this.emailInput = this.form.querySelector('.email');
-    this.passwordInput = this.form.querySelector('.password');
 
-    this.emailError = this.form.querySelector('.email-message-error');
-    this.passwordError = this.form.querySelector('.password-message-error');
+    // Initialize the corresponding inputs and errors
+    this.fields = {
+      email: {
+        input: this.form.querySelector('.email'),
+        error: this.form.querySelector('.email-message-error')
+      },
+      password: {
+        input: this.form.querySelector('.password'),
+        error: this.form.querySelector('.password-message-error')
+      }
+    };
 
     this.init();
   }
 
-  // Getter to access trimmed email and password
+  // Returns the entered, trimmed data 
   get formData() {
     return {
-      email: this.emailInput.value.trim(),
-      password: this.passwordInput.value.trim(),
+      email: this.fields.email.input.value.trim(),
+      password: this.fields.password.input.value.trim()
     };
   }
 
-  // Delete error messages When input or focus
-  get fields() {
-    return [
-      [this.emailInput, this.emailError],
-      [this.passwordInput, this.passwordError],
-    ];
-  }
-
-  // Initialize event listeners
+  // Initialize the event listeners 
   init = () => {
     this.form.addEventListener('submit', this.handleSubmit);
 
-    // Event listeners for input and focus to clear error messages
-    this.fields.forEach(([input, error]) => {
+    // Clear error messages on input and focus events
+    Object.values(this.fields).forEach(({ input, error }) => {
       input.addEventListener('input', () => (error.textContent = ''));
       input.addEventListener('focus', () => (error.textContent = ''));
     });
@@ -54,58 +53,53 @@ class LoginForm {
 
     const user = this.verifyUser(email);
     if (!user) {
-      this.emailError.textContent = MESSAGES.EMAIL_NOT_FOUND;
+      this.fields.email.error.textContent = MESSAGES.EMAIL_NOT_FOUND;
       return;
     }
 
     if (user.password !== password) {
-      this.passwordError.textContent = MESSAGES.PASSWORD_INCORRECT;
+      this.fields.password.error.textContent = MESSAGES.PASSWORD_INCORRECT;
       return;
     }
 
     this.redirectToDashboard();
   };
 
-  // Validate email
   validateEmail = (email) => {
     if (!email) {
-      this.emailError.textContent = MESSAGES.EMAIL_REQUIRED;
+      this.fields.email.error.textContent = MESSAGES.EMAIL_REQUIRED;
       return false;
     }
 
     const valid = isValidEmail(email);
     if (!valid) {
-      this.emailError.textContent = MESSAGES.EMAIL_INVALID;
+      this.fields.email.error.textContent = MESSAGES.EMAIL_INVALID;
     }
 
     return valid;
   };
 
-  // Validate password
   validatePassword = (password) => {
     if (!password) {
-      this.passwordError.textContent = MESSAGES.PASSWORD_REQUIRED;
+      this.fields.password.error.textContent = MESSAGES.PASSWORD_REQUIRED;
       return false;
     }
 
     const valid = isValidPassword(password);
     if (!valid) {
-      this.passwordError.textContent = MESSAGES.PASSWORD_INVALID;
+      this.fields.password.error.textContent = MESSAGES.PASSWORD_INVALID;
     }
 
     return valid;
   };
 
-  // Verify user by email
   verifyUser = (email) => {
     return USER_DATA.find((user) => user.email === email);
   };
 
-  // Navigate to dashboard
   redirectToDashboard = () => {
     window.location.href = '../management-product.html';
   };
 }
 
-  new LoginForm('form');
-
+new LoginForm('form');
