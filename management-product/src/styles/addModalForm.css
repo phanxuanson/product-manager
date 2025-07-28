@@ -2,9 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-.container-modal {
+.upload-form-modal {
   @apply hidden rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.1)] max-w-md w-full p-6 relative;
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+
+.upload-form-modal.block {
+  @apply block;
 }
 
 .btn-show-modal-form {
@@ -26,6 +31,7 @@
 .btn-close-modal {
     @apply absolute top-6 right-6 text-gray-500 hover:text-primary focus:outline-none
 }
+
 
 .upload {
     @apply hidden
