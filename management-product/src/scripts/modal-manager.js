@@ -19,9 +19,21 @@ class ModalManager {
 	};
 
 	// Close modal upload form
-	closeAddBtn = (modalName) => {
-		this.modals[modalName].classList.remove('block');
-	}
+	closeModal = (modalName) => {
+		const modal = this.modals[modalName];
+
+		// Reset form if Upload Modal
+		if (modalName === 'add') {
+			const form = modal.querySelector('form');
+			form?.reset();
+		}
+
+		if (modalName === 'delete' || modalName === 'confirm') {
+			modal.classList.add('hidden');
+		}
+
+		modal.classList.remove('block');
+	};
 
 
 	// Initialize event listeners for modals
@@ -32,15 +44,19 @@ class ModalManager {
 		showAddBtn?.addEventListener('click', () => this.showModal('add'));
 
 		// Event listener for close the modal upload form
-		['.btn-close-modal', '.btn-cancel'].forEach(selector => {
-			this.modals.add.querySelector(selector)
-				?.addEventListener('click', () => this.closeAddBtn('add'));
-		});
+		const closeConfig = [
+			{ modal: 'add', selectors: ['.btn-close-modal', '.btn-cancel'] },
+			{ modal: 'delete', selectors: ['.btn-close-delete-modal', '.btn-cancel-deleteModal'] },
+			{ modal: 'confirm', selectors: ['.btn-close-delete-modal', '.btn-close-confirm-modal'] }
+		];
 
-		// Event listener for Close Delete & Confirm Modal
-		const closeDeleteModal = this.container.querySelector('.btn-close-delete-modal');
-		closeDeleteModal?.addEventListener('click', () => this.closeAddBtn('delete', 'confirm'));
-		console.log('closeModal',closeDeleteModal);
+		closeConfig.forEach(({ modal: modalName, selectors }) => {
+			const modal = this.modals[modalName]; 
+			selectors.forEach(selector => {
+				modal.querySelector(selector)
+					?.addEventListener('click', () => this.closeModal(modalName));
+			});
+		});
 	}
 }
 

@@ -38,5 +38,5 @@
 
 .delete-modal,
 .confirm-modal-deletion {
-    @apply hidden;
+    /* @apply hidden; */
 }
