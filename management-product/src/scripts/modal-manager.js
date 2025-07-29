@@ -1,6 +1,7 @@
 class ModalManager {
 	constructor() {
 		this.container = document.querySelector('.container');
+		this.overlay = this.container.querySelector('.modal-overlay');
 
 		// Variables to the Modals
 		this.modals = {
@@ -15,6 +16,7 @@ class ModalManager {
 	// Show modal upload form
 	showModal = (modalName) => {
 		const modal = this.modals[modalName];
+		this.overlay.classList.add('active');
 		modal.classList.add('block');
 	};
 
@@ -33,6 +35,7 @@ class ModalManager {
 		}
 
 		modal.classList.remove('block');
+		this.overlay.classList.remove('active');
 	};
 
 

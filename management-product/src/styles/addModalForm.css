@@ -9,7 +9,8 @@
 
 
 .upload-form-modal.block {
-  @apply block;
+  @apply block z-10 fixed bg-white top-25 justify-self-center;
+
 }
 
 .btn-show-modal-form {
@@ -101,4 +102,12 @@ label[for="types"] {
 
 .btn-cancel {
     @apply border hover:bg-gray-50 px-[23px] py-[13px];
+}
+
+.modal-overlay {
+    @apply fixed inset-0 bg-gray-900/35 z-5 hidden w-full h-full top-0 left-0;
+}
+
+.modal-overlay.active {
+    @apply block;
 }
