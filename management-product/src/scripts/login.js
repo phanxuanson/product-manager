@@ -1,4 +1,4 @@
-import { REGEX, isValidPassword } from './utils/regex.js';
+import { checkEmailFormat, checkPassword } from './utils/regex.js';
 import { MESSAGES } from './constants/messages.js';
 import { USER_DATA } from './constants/user-data.js';
 
@@ -71,7 +71,7 @@ class LoginForm {
       return false;
     }
 
-    const valid = REGEX(email);
+    const valid = checkEmailFormat(email);
     if (!valid) {
       this.fields.email.error.textContent = MESSAGES.EMAIL_INVALID;
     }
@@ -85,7 +85,7 @@ class LoginForm {
       return false;
     }
 
-    const valid = isValidPassword(password);
+    const valid = checkPassword(password);
     if (!valid) {
       this.fields.password.error.textContent = MESSAGES.PASSWORD_INVALID;
     }

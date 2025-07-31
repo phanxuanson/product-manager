@@ -1,6 +1,6 @@
-export const REGEX = (email) => {
+export const checkEmailFormat = (email) => {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
 };
 
-export const isValidPassword = (password) => password.length >= 6;
+export const checkPassword = (password) => password.length >= 6;
