@@ -1,6 +1,6 @@
-import { isValidEmail, isValidPassword } from '../utils/regex.js';
-import { MESSAGES } from '../constants/messages.js';
-import { USER_DATA } from '../constants/user-data.js';
+import { REGEX, isValidPassword } from './utils/regex.js';
+import { MESSAGES } from './constants/messages.js';
+import { USER_DATA } from './constants/user-data.js';
 
 class LoginForm {
   constructor(formSelector) {
@@ -71,7 +71,7 @@ class LoginForm {
       return false;
     }
 
-    const valid = isValidEmail(email);
+    const valid = REGEX(email);
     if (!valid) {
       this.fields.email.error.textContent = MESSAGES.EMAIL_INVALID;
     }
