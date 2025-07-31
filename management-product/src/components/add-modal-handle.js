@@ -1,4 +1,3 @@
-import { ProductStore } from '../constants/product-store.js';
 class AddModalHandle {
   constructor() {
     this.container = document.querySelector('.container');
@@ -7,11 +6,9 @@ class AddModalHandle {
     // Input elements for the modal
     this.inputUpload = this.uploadModal.querySelector('.upload');
     this.avatarPreview = this.uploadModal.querySelector('.image-product img');
-    console.log('avatarPreview ====>', this.avatarPreview);
 
     // Text "Click to upload"
     this.clickUploadText = this.uploadModal.querySelector('.form-modal-upload');
-    console.log('clickUploadText ====>', this.clickUploadText);
 
     this.inputName = this.uploadModal.querySelector('.name');
     this.inputQuantity = this.uploadModal.querySelector('.quantity');
@@ -31,7 +28,6 @@ class AddModalHandle {
     // When click into "Click to upload" text, trigger the file input
     this.clickUploadText.addEventListener('click', () => {
       this.inputUpload.click();
-      console.log("Click to upload text clicked");
     });
 
     // When choose a file to upload
@@ -51,24 +47,6 @@ class AddModalHandle {
       };
       reader.readAsDataURL(file);
     }
-  }
-
-  handleConfirm(e) {
-    // Handle the confirm event
-    e.preventDefault();
-
-    const product = {
-      name: this.inputName.value.trim(),
-      quantity: Number(this.inputQuantity.value),
-      price: Number(this.inputPrice.value),
-      status: this.selectStatus.value,
-      types: this.selectTypes.value,
-      brand: this.inputBrand.value.trim(),
-      image: this.uploadedImage || null,
-    };
-    ProductStore.addProduct(product);
-
-    console.log("Confirm event handled");
   }
 }
 
