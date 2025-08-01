@@ -1,4 +1,4 @@
-import { checkEmailFormat, checkPassword } from './utils/regex.js';
+import { isValidEmail, isValidPassword } from './utils/regex.js';
 import { MESSAGES } from './constants/messages.js';
 import { USER_DATA } from './constants/user-data.js';
 
@@ -46,8 +46,8 @@ class LoginForm {
 
     const { email, password } = this.formData;
 
-    const isEmailValid = this.validateEmail(email);
-    const isPasswordValid = this.validatePassword(password);
+    const isEmailValid = this.showErrorMessagesEmail(email);
+    const isPasswordValid = this.showErrorMessagesPass(password);
 
     if (!isEmailValid || !isPasswordValid) return;
 
@@ -65,13 +65,13 @@ class LoginForm {
     this.redirectToDashboard();
   };
 
-  validateEmail = (email) => {
+  showErrorMessagesEmail = (email) => {
     if (!email) {
       this.fields.email.error.textContent = MESSAGES.EMAIL_REQUIRED;
       return false;
     }
 
-    const valid = checkEmailFormat(email);
+    const valid = isValidEmail(email);
     if (!valid) {
       this.fields.email.error.textContent = MESSAGES.EMAIL_INVALID;
     }
@@ -79,13 +79,13 @@ class LoginForm {
     return valid;
   };
 
-  validatePassword = (password) => {
+  showErrorMessagesPass = (password) => {
     if (!password) {
       this.fields.password.error.textContent = MESSAGES.PASSWORD_REQUIRED;
       return false;
     }
 
-    const valid = checkPassword(password);
+    const valid = isValidPassword(password);
     if (!valid) {
       this.fields.password.error.textContent = MESSAGES.PASSWORD_INVALID;
     }
