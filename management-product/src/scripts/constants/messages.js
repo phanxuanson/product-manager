@@ -4,8 +4,8 @@ export const MESSAGES = {
     EMAIL_INVALID: "Email is invalid",
     EMAIL_NOT_FOUND: "Email not found",
     PASSWORD_INVALID:"Password is more than six characters",
-    PASSWORD_INCORRECT: "Incorrect password"
-
+    PASSWORD_INCORRECT: "Incorrect password",
+    INPUT_FIELDS_REQUIRED: "Please fill in all fields.",
   };
 
   

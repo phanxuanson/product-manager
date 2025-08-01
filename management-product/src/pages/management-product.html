@@ -52,16 +52,19 @@
 					<div class="form-input-name">
 						<label for="name">Name</label>
 						<input type="text" class="name" placeholder="Enter name..." />
+						<p class="error-message"></p>
 					</div>
 
 					<div class="form-input-quantity">
 						<label for="quantity">Quantity</label>
 						<input type="number" class="quantity" value="0" />
+						<p class="error-message"></p>
 					</div>
 
 					<div class="form-input-price">
 						<label for="price">Price</label>
 						<input type="number" class="price" value="0" />
+						<p class="error-message"></p>
 					</div>
 
 					<div class="product-status flex space-x-4">
@@ -77,6 +80,7 @@
 										class="absolute right-3 top-1/2 transform -translate-y-1/2" />
 								</div>
 							</div>
+							<p class="error-message"></p>
 						</div>
 						<div class="flex-1">
 							<label for="types" class="block text-primary text-sm font-bold mb-1">Types</label>
@@ -98,6 +102,7 @@
 					<div class="form-input-brand">
 						<label for="brand">Brand</label>
 						<input type="text" class="brand" placeholder="Enter Brand..." />
+						<p class="error-message"></p>
 					</div>
 
 					<div class="flex justify-end space-x-3 mt-4">
@@ -163,11 +168,28 @@
 				</div>
 				<button class="btn-close-confirm-modal">Close</button>
 			</div>
+
+			<!-- Table -->
+			<div class="table-wrapper">
+				<table class="product-table">
+					<thead class="table-header">
+						<tr class="table-row-header">
+							<th>Product</th>
+							<th>Status</th>
+							<th>Type</th>
+							<th>Quantity</th>
+							<th>Brand</th>
+							<th>Price</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody class="product-table-body">
+						<!-- Product rows will be dynamically inserted here -->
+					</tbody>
+				</table>
 		</div>
 	</div>
-	<script type="module" src="../scripts/components/modal/add-modal-handle.js"></script>
-	<script type="module" src="../scripts/components/modal/modal-manager.js"></script>
-
+	<script type="module" src="../scripts/management-product.js"></script>
 </body>
 
 </html>

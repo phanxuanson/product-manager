@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.table-wrapper {
+  @apply mt-10 hidden;
+}
+.product-table {
+  @apply w-full border-collapse border border-transparent;
+}
+
+.table-row-header th {
+  @apply text-left font-semibold font-primary text-sm text-primary px-4 py-2;
+}
