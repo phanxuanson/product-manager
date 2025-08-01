@@ -1,6 +1,10 @@
-import { isValidEmail, isValidPassword } from '../constants/regex.js';
-import { MESSAGES } from '../constants/messages.js';
-import { USER_DATA } from '../constants/user-data.js';
+<<<<<<< HEAD
+import { isValidEmail, isValidPassword } from './utils/validates.js';
+=======
+import { isValidEmail, isValidPassword } from './utils/validate.js';
+>>>>>>> 8198fb71dd2f67478a2a0c7edb93e0e0d8ab9411
+import { MESSAGES } from './constants/messages.js';
+import { USER_DATA } from './constants/user-data.js';
 
 class LoginForm {
   constructor(formSelector) {
@@ -46,8 +50,8 @@ class LoginForm {
 
     const { email, password } = this.formData;
 
-    const isEmailValid = this.validateEmail(email);
-    const isPasswordValid = this.validatePassword(password);
+    const isEmailValid = this.showErrorMessagesEmail(email);
+    const isPasswordValid = this.showErrorMessagesPass(password);
 
     if (!isEmailValid || !isPasswordValid) return;
 
@@ -65,7 +69,7 @@ class LoginForm {
     this.redirectToDashboard();
   };
 
-  validateEmail = (email) => {
+  showErrorMessagesEmail = (email) => {
     if (!email) {
       this.fields.email.error.textContent = MESSAGES.EMAIL_REQUIRED;
       return false;
@@ -79,7 +83,7 @@ class LoginForm {
     return valid;
   };
 
-  validatePassword = (password) => {
+  showErrorMessagesPass = (password) => {
     if (!password) {
       this.fields.password.error.textContent = MESSAGES.PASSWORD_REQUIRED;
       return false;
