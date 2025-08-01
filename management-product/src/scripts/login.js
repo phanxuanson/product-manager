@@ -1,4 +1,4 @@
-import { isValidEmail, isValidPassword } from './utils/regex.js';
+import { isValidEmail, isValidPassword } from './utils/authValidators.js';
 import { MESSAGES } from './constants/messages.js';
 import { USER_DATA } from './constants/user-data.js';
 
