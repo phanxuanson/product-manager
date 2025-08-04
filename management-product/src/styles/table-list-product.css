@@ -3,12 +3,25 @@
 @tailwind utilities;
 
 .table-wrapper {
-  @apply mt-10 hidden;
+  @apply mt-10;
 }
 .product-table {
-  @apply w-full border-collapse border border-transparent;
+  @apply w-full border-collapse border border-transparent hidden;
+}
+
+.product-table.table {
+  @apply table;
 }
 
 .table-row-header th {
   @apply text-left font-semibold font-primary text-sm text-primary px-4 py-2;
+}
+
+.product-table-body {
+  @apply text-sm font-primary;
+}
+
+.product-item-table-row td, 
+.table-row-header th {
+  @apply px-4 py-3;
 }
