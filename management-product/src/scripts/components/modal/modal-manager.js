@@ -60,6 +60,13 @@ class ModalManager {
 					?.addEventListener('click', () => this.closeModal(modalName));
 			});
 		});
+
+		const confirmBtn = this.modals.add.querySelector('.btn-confirm');
+		confirmBtn?.addEventListener('click', () => {
+			const form = this.modals.add.querySelector('form');
+			form?.reset();
+			this.closeModal('add');
+		});
 	}
 }
 

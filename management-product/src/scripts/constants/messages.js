@@ -8,4 +8,9 @@ export const MESSAGES = {
     INPUT_FIELDS_REQUIRED: "Please fill in all fields.",
   };
 
-  
+export const MODAL_MESSAGES = {
+    NAMES: "Name cannot be empty.",
+    QUANTITY: "Quantity must be a positive number",
+    PRICE: "Price must be a positive number",
+    BRAND: "Brand cannot be empty.",
+}

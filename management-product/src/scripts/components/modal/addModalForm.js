@@ -1,7 +1,6 @@
-import { addModalHandle } from './add-modal-handle.js';
-import { MESSAGES } from '../../constants/messages.js';
+import { MODAL_MESSAGES} from '../../constants/messages.js';
 
-class HandleConfirm {
+class AddModalForm {
   constructor() {
     this.container = document.querySelector('.container');
     this.overlay = this.container.querySelector('.modal-overlay');
@@ -10,45 +9,69 @@ class HandleConfirm {
     this.productTableBody = this.productTable.querySelector('.product-table-body');
     this.confirmBtn = this.addModal.querySelector('.btn-confirm');
 
+    // Input elements
+    this.clickUploadText = this.addModal.querySelector('.form-modal-upload');
+    this.inputUpload = this.addModal.querySelector('.upload');
+    console.log(this.inputUpload);
+    this.inputUpload.addEventListener('change', (e) => this.handleUpload(e));
+    this.avatarPreview = this.addModal.querySelector('.image-product img');
+
+    this.inputName = this.addModal.querySelector('.name');
+    this.inputQuantity = this.addModal.querySelector('.quantity');
+    this.inputPrice = this.addModal.querySelector('.price');
+    this.selectStatus = this.addModal.querySelector('.status-product-select');
+    this.selectTypes = this.addModal.querySelector('.types-product-select');
+    this.inputBrand = this.addModal.querySelector('.brand');
+
+    this.uploadedImage = null;
+
     this.initializeEvents();
   }
 
   initializeEvents() {
+
+    this.clickUploadText.addEventListener('click', () => {
+      this.inputUpload.click();
+    });
+
+    this.inputUpload.addEventListener('change', (e) => this.handleUpload(e));
     this.confirmBtn.addEventListener('click', (e) => {
       e.preventDefault();
       this.addProduct();
     });
   }
 
-  addProduct() {
-    // Get data from instance addModalHandle
-    const name = addModalHandle.inputName.value.trim();
-    const quantity = addModalHandle.inputQuantity.value.trim();
-    const price = addModalHandle.inputPrice.value.trim();
-    const status = addModalHandle.selectStatus.value;
-    const types = addModalHandle.selectTypes.value;
-    const brand = addModalHandle.inputBrand.value.trim();
-
-    // Validate input fields
-    if (!name || !quantity || !price || !brand) {
-      const errorMessage = MESSAGES.INPUT_FIELDS_REQUIRED;
-      const errorElement = this.addModal.querySelectorAll('.error-message');
-      errorElement.forEach((el) => {
-        el.textContent = errorMessage;
-      });
-      return;
+  handleUpload(e) {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        this.avatarPreview.src = event.target.result;
+        this.uploadedImage = event.target.result;
+      };
+      reader.readAsDataURL(file);
     }
+  }
 
-    // Render the new product in the table
+  addProduct() {
+
+    const name = this.inputName.value.trim();
+    const quantity = this.inputQuantity.value.trim();
+    const price = this.inputPrice.value.trim();
+    const status = this.selectStatus.value;
+    const types = this.selectTypes.value;
+    const brand = this.inputBrand.value.trim();
+
     const row = document.createElement('tr');
     row.classList.add('product-item-table-row');
     row.innerHTML = `
       <td class="px-4 py-3 whitespace-nowrap flex items-center space-x-3">
-        <img src="${addModalHandle.uploadedImage || '../assets/images/avatar-icon.svg'}" 
+        <img src="${this.uploadedImage || '../assets/images/avatar-icon.svg'}" 
              alt="${name}" class="w-10 h-10 rounded-md object-cover">
         <span>${name}</span>
       </td>
       <td>
+      
         <span class="border px-2 py-1 rounded-sm text-sm font-semibold ${status === 'Available' ? 'bg-white text-secondary border' : 'text-warning'}">${status}</span>
       </td>
       <td>${types}</td>
@@ -68,19 +91,16 @@ class HandleConfirm {
           <button class="text-sm font-semibold font-primary text-warning">Delete</button>
         </div>
       </td>
-      
     `;
 
-    // Add the new row to the product table body
     this.productTableBody.appendChild(row);
     this.productTable.classList.add('table');
 
-    // Close the Add Modal
+    // Close modal
     this.addModal.classList.remove('block');
     this.overlay.classList.remove('active');
-    
-    // Reset the form fields
-    
+
   }
 }
-new HandleConfirm();
+
+new AddModalForm();
