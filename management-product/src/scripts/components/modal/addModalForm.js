@@ -1,4 +1,4 @@
-import { MODAL_MESSAGES} from '../../constants/messages.js';
+import { AddProductValidator } from './addModalValidate.js';
 
 class AddModalForm {
   constructor() {
@@ -12,7 +12,6 @@ class AddModalForm {
     // Input elements
     this.clickUploadText = this.addModal.querySelector('.form-modal-upload');
     this.inputUpload = this.addModal.querySelector('.upload');
-    console.log(this.inputUpload);
     this.inputUpload.addEventListener('change', (e) => this.handleUpload(e));
     this.avatarPreview = this.addModal.querySelector('.image-product img');
 
@@ -24,7 +23,7 @@ class AddModalForm {
     this.inputBrand = this.addModal.querySelector('.brand');
 
     this.uploadedImage = null;
-
+    this.validator = new AddProductValidator(this.addModal);
     this.initializeEvents();
   }
 
@@ -54,7 +53,9 @@ class AddModalForm {
   }
 
   addProduct() {
-
+    const isValid = this.validator.validate(this.uploadedImage);
+    if (!isValid) return;
+    
     const name = this.inputName.value.trim();
     const quantity = this.inputQuantity.value.trim();
     const price = this.inputPrice.value.trim();
@@ -99,8 +100,16 @@ class AddModalForm {
     // Close modal
     this.addModal.classList.remove('block');
     this.overlay.classList.remove('active');
+    this.resetForm();
 
+  }
+
+  resetForm() {
+    const form = this.addModal.querySelector('form');
+    form?.reset();
+    this.avatarPreview.src = '../assets/images/avatar-icon.svg';
+    this.uploadedImage = null;
   }
 }
 
-new AddModalForm();
+export const addModalInstance = new AddModalForm();

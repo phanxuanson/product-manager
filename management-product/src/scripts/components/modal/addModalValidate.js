@@ -33,9 +33,9 @@ export class AddProductValidator {
       },
       image: {
         container: this.form.querySelector('.image-product'),
-        error: this.form.querySelector('.image-product .error-message'),
+        error: this.form.querySelector('.image-product'),
         validate: (uploadedImage) => Boolean(uploadedImage),
-        message: IMAGE
+        message: IMAGE 
       }
     };
 

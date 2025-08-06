@@ -13,4 +13,5 @@ export const MODAL_MESSAGES = {
     QUANTITY: "Quantity must be a positive number",
     PRICE: "Price must be a positive number",
     BRAND: "Brand cannot be empty.",
+    IMAGE: "Please upload image product."
 }
