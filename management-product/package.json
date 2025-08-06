@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "parcel src/pages/*.html",
-    "build": "parcel build ./src/pages/*.html",
+     "build": "parcel build src/pages/*.html --dist-dir dist",
     "prepare": "husky"
   },
   "lint-staged": {
