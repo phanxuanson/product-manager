@@ -109,6 +109,8 @@ class AddModalForm {
     form?.reset();
     this.avatarPreview.src = '../assets/images/avatar-icon.svg';
     this.uploadedImage = null;
+
+    this.validator?.clearErrors();
   }
 }
 

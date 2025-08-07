@@ -67,6 +67,8 @@ export class AddProductValidator {
 
       if (!isFieldValid) {
         field.error.textContent = field.message;
+        field.error.classList.add('text-warning');
+
         isValid = false;
       }
     });
