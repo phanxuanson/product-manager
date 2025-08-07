@@ -1,6 +1,6 @@
-import { MODAL_MESSAGES } from '../../constants/messages.js';
+import { MESSAGES_ERROR } from '../../constants/messages.js';
 
-const { NAMES, QUANTITY, PRICE, BRAND, IMAGE } = MODAL_MESSAGES;
+const { NAMES, QUANTITY, PRICE, BRAND, IMAGE } = MESSAGES_ERROR;
 
 export class AddProductValidator {
   constructor(formElement) {
@@ -32,8 +32,8 @@ export class AddProductValidator {
         message: BRAND
       },
       image: {
-        container: this.form.querySelector('.image-product'),
-        error: this.form.querySelector('.image-product'),
+        container: this.form.querySelector('.form-input-image'),
+        error: this.form.querySelector('.error-message'),
         validate: (uploadedImage) => Boolean(uploadedImage),
         message: IMAGE 
       }
@@ -57,7 +57,7 @@ export class AddProductValidator {
     });
   }
 
-  validate(uploadedImage) {
+  iconImageUploadAddFormModal(uploadedImage) {
     this.clearErrors();
     let isValid = true;
 
@@ -65,10 +65,8 @@ export class AddProductValidator {
       const value = key === 'image' ? uploadedImage : field.input.value.trim();
       const isFieldValid = field.validate(value);
 
-      if (!isFieldValid) {
+      if (!isFieldValid) {  
         field.error.textContent = field.message;
-        field.error.classList.add('text-warning');
-
         isValid = false;
       }
     });

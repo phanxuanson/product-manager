@@ -1,4 +1,5 @@
-import { addModalInstance } from './addModalForm.js';
+import { addModalInstance } from './formModal.js';
+
 class ModalManager {
 	constructor() {
 		this.container = document.querySelector('.container');
@@ -36,8 +37,8 @@ class ModalManager {
 
 		modal.classList.remove('block');
 		this.overlay.classList.remove('active');
-	};
 
+	};
 
 	// Initialize event listeners for modals
 	initializeEvents = () => {

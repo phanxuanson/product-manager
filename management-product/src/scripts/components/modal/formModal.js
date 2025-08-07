@@ -1,4 +1,6 @@
-import { AddProductValidator } from './addModalValidate.js';
+import { AddProductValidator } from './validateModal.js';
+import { getDataFromLocalStorage, saveDataToLocalStorage } from '../../utils/localStorage.js';
+
 
 class AddModalForm {
   constructor() {
@@ -12,9 +14,8 @@ class AddModalForm {
     // Input elements
     this.clickUploadText = this.addModal.querySelector('.form-modal-upload');
     this.inputUpload = this.addModal.querySelector('.upload');
-    this.inputUpload.addEventListener('change', (e) => this.handleUpload(e));
     this.avatarPreview = this.addModal.querySelector('.image-product img');
-
+    
     this.inputName = this.addModal.querySelector('.name');
     this.inputQuantity = this.addModal.querySelector('.quantity');
     this.inputPrice = this.addModal.querySelector('.price');
@@ -53,9 +54,9 @@ class AddModalForm {
   }
 
   addProduct() {
-    const isValid = this.validator.validate(this.uploadedImage);
+    const isValid = this.validator.iconImageUploadAddFormModal(this.uploadedImage);
     if (!isValid) return;
-    
+
     const name = this.inputName.value.trim();
     const quantity = this.inputQuantity.value.trim();
     const price = this.inputPrice.value.trim();
@@ -63,12 +64,28 @@ class AddModalForm {
     const types = this.selectTypes.value;
     const brand = this.inputBrand.value.trim();
 
+    const product = {
+      image: this.uploadedImage || '../assets/images/avatar-icon.svg',
+      name,
+      quantity,
+      price,
+      status,
+      types,
+      brand
+    };
+
+    const products = getDataFromLocalStorage('products');
+      products.push(product);
+      saveDataToLocalStorage('products', products);
+
+      console.log('Product added:', product);
+
     const row = document.createElement('tr');
     row.classList.add('product-item-table-row');
     row.innerHTML = `
       <td class="px-4 py-3 whitespace-nowrap flex items-center space-x-3">
-        <img src="${this.uploadedImage || '../assets/images/avatar-icon.svg'}" 
-             alt="${name}" class="w-10 h-10 rounded-md object-cover">
+        <img src="${product.image}" 
+             alt="${name}" class="w-10 h-10 rounded-md object-cover" />
         <span>${name}</span>
       </td>
       <td>
@@ -107,11 +124,11 @@ class AddModalForm {
   resetForm() {
     const form = this.addModal.querySelector('form');
     form?.reset();
-    this.avatarPreview.src = '../assets/images/avatar-icon.svg';
-    this.uploadedImage = null;
 
+    // Reset image input
+    this.avatarPreview.src = '/avatar-icon.94c918de.svg';
     this.validator?.clearErrors();
-  }
+  } 
 }
 
 export const addModalInstance = new AddModalForm();

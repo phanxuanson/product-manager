@@ -1,2 +1,2 @@
-import './components/modal/addModalForm.js';
-import './components/modal/modal-manager.js';
+import './components/modal/formModal.js';
+import './components/modal/toggleModal.js';

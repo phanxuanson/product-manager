@@ -8,10 +8,10 @@ export const MESSAGES = {
     INPUT_FIELDS_REQUIRED: "Please fill in all fields.",
   };
 
-export const MODAL_MESSAGES = {
+export const MESSAGES_ERROR = {
     NAMES: "Name cannot be empty.",
     QUANTITY: "Quantity must be a positive number",
-    PRICE: "Price must be a positive number",
+    PRICE: "The lowest price is $100.",
     BRAND: "Brand cannot be empty.",
-    IMAGE: "Please upload image product."
+    IMAGE: "Input image product."
 }
