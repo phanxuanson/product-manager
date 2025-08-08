@@ -62,8 +62,8 @@ class AddModalForm {
     if (!isValid) return;
 
     const name = this.inputName.value.trim();
-    const quantity = this.inputQuantity.value.trim();
-    const price = this.inputPrice.value.trim();
+    const quantity = Number(this.inputQuantity.value.trim());
+    const price = Number(this.inputPrice.value.trim());
     const status = this.selectStatus.value;
     const types = this.selectTypes.value;
     const brand = this.inputBrand.value.trim();
@@ -86,7 +86,9 @@ class AddModalForm {
     this.productTableBody.appendChild(row);
 
     saveDataToLocalStorage('products', products);
-    this.productTable.classList.add('table');
+    if (!this.productTable.classList.contains('table')) {
+      this.productTable.classList.add('table');
+    }
 
     // Close modal
     this.addModal.classList.remove('block');
@@ -108,7 +110,7 @@ class AddModalForm {
     const row = document.createElement('tr');
     row.classList.add('product-item-table-row');
     row.innerHTML = `
-      <td class="px-4 py-3 whitespace-nowrap flex items-center space-x-3">
+      <td class="px-4 py-3 whitespace-nowrap sm:flex items-center space-x-3">
         <img src="${product.image}" 
              alt="${product.name}" class="w-10 h-10 rounded-md object-cover" />
         <span>${product.name}</span>

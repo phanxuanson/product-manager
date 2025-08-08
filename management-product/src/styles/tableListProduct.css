@@ -23,7 +23,7 @@
 
 .product-item-table-row td, 
 .table-row-header th {
-  @apply px-4 py-3;
+  @apply text-center sm:px-4 sm:py-3;
 }
 
 .table-header,
