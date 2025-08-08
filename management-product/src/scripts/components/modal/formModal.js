@@ -15,7 +15,7 @@ class AddModalForm {
     this.clickUploadText = this.addModal.querySelector('.form-modal-upload');
     this.inputUpload = this.addModal.querySelector('.upload');
     this.avatarPreview = this.addModal.querySelector('.image-product img');
-    
+
     this.inputName = this.addModal.querySelector('.name');
     this.inputQuantity = this.addModal.querySelector('.quantity');
     this.inputPrice = this.addModal.querySelector('.price');
@@ -25,7 +25,11 @@ class AddModalForm {
 
     this.uploadedImage = null;
     this.validator = new AddProductValidator(this.addModal);
+    
+    // Load existing products when initializing
+    this.loadExistingProducts();
     this.initializeEvents();
+
   }
 
   initializeEvents() {
@@ -75,43 +79,13 @@ class AddModalForm {
     };
 
     const products = getDataFromLocalStorage('products');
-      products.push(product);
-      saveDataToLocalStorage('products', products);
+    products.push(product);
 
-      console.log('Product added:', product);
-
-    const row = document.createElement('tr');
-    row.classList.add('product-item-table-row');
-    row.innerHTML = `
-      <td class="px-4 py-3 whitespace-nowrap flex items-center space-x-3">
-        <img src="${product.image}" 
-             alt="${name}" class="w-10 h-10 rounded-md object-cover" />
-        <span>${name}</span>
-      </td>
-      <td>
-      
-        <span class="border px-2 py-1 rounded-sm text-sm font-semibold ${status === 'Available' ? 'bg-white text-secondary border' : 'text-warning'}">${status}</span>
-      </td>
-      <td>${types}</td>
-      <td>
-        <span class="border border-[#DFE2E9] px-2 py-1 rounded-lg bg-white text-sm">${quantity}</span>
-      </td>
-      <td>
-        <span>${brand}</span>
-      </td>
-      <td>$${parseFloat(price).toFixed(2)}</td>
-      <td>
-        <button>
-          <i class="fas fa-ellipsis-h text-2xl text-[#B0BAC9]"></i>
-        </button>
-        <div class="hidden flex flex-col items-center justify-center w-28 h-20 rounded-lg border border-gray-300 shadow-sm bg-white">
-          <button class="text-sm font-semibold font-primary text-primary mb-2">Edit</button>
-          <button class="text-sm font-semibold font-primary text-warning">Delete</button>
-        </div>
-      </td>
-    `;
-
+    // Render the new product row
+    const row = this.renderProductRow(product);
     this.productTableBody.appendChild(row);
+
+    saveDataToLocalStorage('products', products);
     this.productTable.classList.add('table');
 
     // Close modal
@@ -128,7 +102,58 @@ class AddModalForm {
     // Reset image input
     this.avatarPreview.src = '/avatar-icon.94c918de.svg';
     this.validator?.clearErrors();
-  } 
+  }
+
+  renderProductRow(product) {
+    const row = document.createElement('tr');
+    row.classList.add('product-item-table-row');
+    row.innerHTML = `
+      <td class="px-4 py-3 whitespace-nowrap flex items-center space-x-3">
+        <img src="${product.image}" 
+             alt="${product.name}" class="w-10 h-10 rounded-md object-cover" />
+        <span>${product.name}</span>
+      </td>
+      <td>
+        <span class="border px-2 py-1 rounded-sm text-sm ${product.status === 'Available' ? 'bg-white text-secondary border' : 'text-warning'}">${product.status}</span>
+      </td>
+      <td>${product.types}</td>
+      <td>
+        <span class="border border-[#DFE2E9] px-2 py-1 rounded-lg bg-white text-sm">${product.quantity}</span>
+      </td>
+      <td>
+        <span>${product.brand}</span>
+      </td>
+      <td>$${parseFloat(product.price).toFixed(2)}</td>
+      <td>
+        <button>
+          <i class="fas fa-ellipsis-h text-2xl text-[#B0BAC9]"></i>
+        </button>
+        <div class="hidden flex flex-col items-center justify-center w-28 h-20 rounded-lg border border-gray-300 shadow-sm bg-white">
+          <button class="text-sm font-semibold font-primary text-primary mb-2">Edit</button>
+          <button class="text-sm font-semibold font-primary text-warning">Delete</button>
+        </div>
+      </td>
+    `;
+    return row;
+  }
+
+  loadExistingProducts() {
+    const products = getDataFromLocalStorage('products') || [];
+    
+    // Clear existing table content
+    this.productTableBody.innerHTML = '';
+    
+    // Add products to table using the common render method
+    products.forEach(product => {
+      const row = this.renderProductRow(product);
+      this.productTableBody.appendChild(row);
+    });
+
+    // Show table if there are products
+    if (products.length > 0) {
+      this.productTable.classList.add('table');
+    }
+  }
 }
 
 export const addModalInstance = new AddModalForm();

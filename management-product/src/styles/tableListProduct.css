@@ -18,10 +18,15 @@
 }
 
 .product-table-body {
-  @apply text-sm font-primary;
+  @apply text-sm font-primary border-solid;
 }
 
 .product-item-table-row td, 
 .table-row-header th {
   @apply px-4 py-3;
+}
+
+.table-header,
+.product-item-table-row {
+  @apply border-b-[1.5px] border-[#DFE2E9];
 }
