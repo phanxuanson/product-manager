@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.table-wrapper {
+  @apply mt-10;
+}
+.product-table {
+  @apply w-full border-collapse border border-transparent hidden;
+}
+
+.product-table.table {
+  @apply table;
+}
+
+.table-row-header th {
+  @apply text-left font-semibold font-primary text-sm text-primary px-4 py-2;
+}
+
+.product-table-body {
+  @apply text-sm font-primary border-solid;
+}
+
+.product-item-table-row td, 
+.table-row-header th {
+  @apply text-center sm:px-4 sm:py-3;
+}
+
+.table-header,
+.product-item-table-row {
+  @apply border-b-[1.5px] border-[#DFE2E9];
+}

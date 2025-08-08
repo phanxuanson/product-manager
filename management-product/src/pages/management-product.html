@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
@@ -18,7 +19,7 @@
 		<div class="container m-auto">
 			<div class="modal-overlay"></div>
 			<!-- Title page -->
-			<h1 class="text-primary font-bold font-primary text-6xl mt-35">Management</h1>
+			<h1 class="text-primary font-bold font-primary text-3xl sm:text-6xl mt-35">Management</h1>
 
 			<!-- Add product button -->
 			<div class="add-button-wrapper">
@@ -34,34 +35,40 @@
 					<img src="../assets/images/close-icon.svg" alt="Close" />
 				</button>
 				<form class="space-y-5">
-					<div class="flex items-center space-x-6">
-						<div class="w-16 h-16 aria-label=" Add image">
-							<img src="../assets/images/avatar-icon.svg" alt="avatar" />
-						</div>
-						<label for="upload" class="form-modal-upload">
-							<div class="flex flex-col items-center justify-center space-y-1">
-								<div class="w-10 h-10">
-									<img src="../assets/images/upload-icon.svg" alt="upload" />
-								</div>
-								<span class="form-modal-upload-text">Click to upload</span>
+					<div class="form-input-image">
+						<div class="flex items-center space-x-6">
+							<div class="image-product w-16 h-16 object-cover" aria-label="Add image">
+								<img class="w-full h-full" src="../assets/images/avatar-icon.svg" alt="avatar" />
 							</div>
-							<input type="file" class="upload" />
-						</label>
+							<label for="upload" class="form-modal-upload">
+								<div class="flex flex-col items-center justify-center space-y-1">
+									<div class="w-10 h-10">
+										<img src="../assets/images/upload-icon.svg" alt="upload" />
+									</div>
+									<span class="form-modal-upload-text">Click to upload</span>
+								</div>
+								<input type="file" class="upload" />
+							</label>
+						</div>
+						<p class="error-message"></p>
 					</div>
 
 					<div class="form-input-name">
 						<label for="name">Name</label>
 						<input type="text" class="name" placeholder="Enter name..." />
+						<p class="error-message"></p>
 					</div>
 
 					<div class="form-input-quantity">
 						<label for="quantity">Quantity</label>
 						<input type="number" class="quantity" value="0" />
+						<p class="error-message"></p>
 					</div>
 
 					<div class="form-input-price">
 						<label for="price">Price</label>
 						<input type="number" class="price" value="0" />
+						<p class="error-message"></p>
 					</div>
 
 					<div class="product-status flex space-x-4">
@@ -77,6 +84,7 @@
 										class="absolute right-3 top-1/2 transform -translate-y-1/2" />
 								</div>
 							</div>
+							<p class="error-message"></p>
 						</div>
 						<div class="flex-1">
 							<label for="types" class="block text-primary text-sm font-bold mb-1">Types</label>
@@ -98,6 +106,7 @@
 					<div class="form-input-brand">
 						<label for="brand">Brand</label>
 						<input type="text" class="brand" placeholder="Enter Brand..." />
+						<p class="error-message"></p>
 					</div>
 
 					<div class="flex justify-end space-x-3 mt-4">
@@ -163,10 +172,28 @@
 				</div>
 				<button class="btn-close-confirm-modal">Close</button>
 			</div>
-		</div>
-	</div>
-	<script type="module" src="../scripts/modal-manager.js"></script>
 
+			<!-- Table -->
+			<div class="table-wrapper overflow-x-auto">
+				<table class="product-table">
+					<thead class="table-header">
+						<tr class="table-row-header">
+							<th>Product</th>
+							<th>Status</th>
+							<th>Type</th>
+							<th>Quantity</th>
+							<th>Brand</th>
+							<th>Price</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody class="product-table-body">
+						<!-- Product rows will be dynamically inserted here -->
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<script type="module" src="../scripts/management-product.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,5 @@
+import { addModalInstance } from './formModal.js';
+
 class ModalManager {
 	constructor() {
 		this.container = document.querySelector('.container');
@@ -26,8 +28,7 @@ class ModalManager {
 
 		// Reset form if Upload Modal
 		if (modalName === 'add') {
-			const form = modal.querySelector('form');
-			form?.reset();
+			addModalInstance.resetForm();
 		}
 
 		if (modalName === 'delete' || modalName === 'confirm') {
@@ -36,8 +37,8 @@ class ModalManager {
 
 		modal.classList.remove('block');
 		this.overlay.classList.remove('active');
-	};
 
+	};
 
 	// Initialize event listeners for modals
 	initializeEvents = () => {
@@ -60,6 +61,7 @@ class ModalManager {
 					?.addEventListener('click', () => this.closeModal(modalName));
 			});
 		});
+
 	}
 }
 
