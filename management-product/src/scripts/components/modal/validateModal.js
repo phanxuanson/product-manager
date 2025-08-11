@@ -57,7 +57,7 @@ export class AddProductValidator {
     });
   }
 
-  iconImageUploadAddFormModal(uploadedImage) {
+  validateAllFields(uploadedImage) {
     this.clearErrors();
     let isValid = true;
 

@@ -1,5 +1,6 @@
 import { AddProductValidator } from './validateModal.js';
 import { getDataFromLocalStorage, saveDataToLocalStorage } from '../../utils/localStorage.js';
+import { modalManager } from './toggleModal.js';
 
 
 class AddModalForm {
@@ -25,6 +26,9 @@ class AddModalForm {
 
     this.uploadedImage = null;
     this.validator = new AddProductValidator(this.addModal);
+    
+    // Initialize products data
+    this.products = getDataFromLocalStorage('products') || [];
     
     // Load existing products when initializing
     this.loadExistingProducts();
@@ -58,7 +62,7 @@ class AddModalForm {
   }
 
   addProduct() {
-    const isValid = this.validator.iconImageUploadAddFormModal(this.uploadedImage);
+    const isValid = this.validator.validateAllFields(this.uploadedImage);
     if (!isValid) return;
 
     const name = this.inputName.value.trim();
@@ -78,22 +82,21 @@ class AddModalForm {
       brand
     };
 
-    const products = getDataFromLocalStorage('products');
-    products.push(product);
+    // Add to local products array
+    this.products.push(product);
 
     // Render the new product row
     const row = this.renderProductRow(product);
     this.productTableBody.appendChild(row);
 
-    saveDataToLocalStorage('products', products);
+    // Save to localStorage
+    saveDataToLocalStorage('products', this.products);
     if (!this.productTable.classList.contains('table')) {
       this.productTable.classList.add('table');
     }
 
-    // Close modal
-    this.addModal.classList.remove('block');
-    this.overlay.classList.remove('active');
-    this.resetForm();
+    // Close modal using modal manager
+    modalManager.closeModal('add');
 
   }
 
@@ -103,6 +106,7 @@ class AddModalForm {
 
     // Reset image input
     this.avatarPreview.src = '/avatar-icon.94c918de.svg';
+    this.uploadedImage = null;
     this.validator?.clearErrors();
   }
 
@@ -140,19 +144,17 @@ class AddModalForm {
   }
 
   loadExistingProducts() {
-    const products = getDataFromLocalStorage('products') || [];
-    
     // Clear existing table content
     this.productTableBody.innerHTML = '';
     
     // Add products to table using the common render method
-    products.forEach(product => {
+    this.products.forEach(product => {
       const row = this.renderProductRow(product);
       this.productTableBody.appendChild(row);
     });
 
     // Show table if there are products
-    if (products.length > 0) {
+    if (this.products.length > 0) {
       this.productTable.classList.add('table');
     }
   }

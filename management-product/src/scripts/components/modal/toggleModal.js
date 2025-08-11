@@ -65,4 +65,4 @@ class ModalManager {
 	}
 }
 
-new ModalManager();
+export const modalManager = new ModalManager();
