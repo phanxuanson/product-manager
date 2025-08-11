@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-import { isValidEmail, isValidPassword } from './utils/validates.js';
-=======
-import { isValidEmail, isValidPassword } from './utils/validate.js';
->>>>>>> 8198fb71dd2f67478a2a0c7edb93e0e0d8ab9411
+import { isValidEmail, isValidPassword } from './utils/validation.js';
 import { MESSAGES } from './constants/messages.js';
-import { USER_DATA } from './constants/user-data.js';
+import { USER_DATA } from './mocks/user-data.js';
 
 class LoginForm {
   constructor(formSelector) {
