@@ -1,6 +1,6 @@
-import { AddProductValidator } from './validateModal.js';
-import { getDataFromLocalStorage, saveDataToLocalStorage } from '../../utils/localStorage.js';
-import { modalManager } from './toggleModal.js';
+import { AddProductValidator } from './validate-modal.js';
+import { getDataFromLocalStorage, saveDataToLocalStorage } from '../../utils/local-storage.js';
+import { modalManager } from './toggle-modal.js';
 
 
 class AddModalForm {

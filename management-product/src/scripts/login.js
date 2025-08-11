@@ -1,6 +1,6 @@
-import { isValidEmail, isValidPassword } from './utils/validatesUser.js';
+import { isValidEmail, isValidPassword } from './utils/validates-user.js';
 import { MESSAGES } from './constants/messages.js';
-import { USER_DATA } from './utils/userData.js';
+import { USER_DATA } from './utils/user-data.js';
 
 class LoginForm {
   constructor(formSelector) {

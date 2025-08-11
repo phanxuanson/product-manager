@@ -1,4 +1,4 @@
-import { addModalInstance } from './formModal.js';
+import { addModalInstance } from './form-modal.js';
 
 class ModalManager {
 	constructor() {
