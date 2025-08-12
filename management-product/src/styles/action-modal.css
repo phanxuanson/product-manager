@@ -1,0 +1,12 @@
+.action-modal {
+  @apply hidden w-28 h-20 rounded-lg border border-gray-300 shadow-sm bg-white py-2 px-4;
+}
+
+.action-modal.show {
+  @apply flex flex-col items-center justify-center absolute z-10;
+}
+
+.btn-edit-product,
+.btn-delete-product {
+  @apply text-sm font-semibold font-primary;
+}
