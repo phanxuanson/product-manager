@@ -63,12 +63,6 @@ class ModalManager {
 			});
 		});
 	}
-
-  closeAllActionModals() {
-    const productTableBody = this.container.querySelector('.product-table-body');
-    const open = productTableBody?.querySelectorAll('.action-modal:not(.hidden)') || [];
-    open.forEach((el) => el.classList.add('hidden'));
-  }
 }
 
 export const modalManager = new ModalManager();
