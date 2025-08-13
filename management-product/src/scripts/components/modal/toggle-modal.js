@@ -62,28 +62,6 @@ class ModalManager {
 					?.addEventListener('click', () => this.closeModal(modalName));
 			});
 		});
-
-    // Toggle row action modal (Edit/Delete) for product table via event delegation
-    const productTableBody = this.container.querySelector('.product-table-body');
-    productTableBody?.addEventListener('click', (event) => {
-      const ellipsisBtn = event.target.closest('.btn-ellipsis');
-      if (!ellipsisBtn) return;
-
-      event.stopPropagation();
-      const cell = ellipsisBtn.closest('td');
-      const actionModal = cell?.querySelector('.action-modal');
-      if (!actionModal) return;
-
-      const willShow = actionModal.classList.contains('hidden');
-      this.closeAllActionModals();
-      if (willShow) actionModal.classList.remove('hidden');
-    });
-
-    // Click outside to close any open action modals
-    document.addEventListener('click', (event) => {
-      if (event.target.closest('.action-modal') || event.target.closest('.btn-ellipsis')) return;
-      this.closeAllActionModals();
-    });
 	}
 
   closeAllActionModals() {

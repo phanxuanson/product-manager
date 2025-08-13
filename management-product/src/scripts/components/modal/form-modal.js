@@ -137,7 +137,7 @@ class AddModalForm {
         <button class="btn-action-modal">
           <i class="fas fa-ellipsis-h text-2xl text-[#B0BAC9]"></i>
         </button>
-        <div class="action-modal">
+        <div class="action-menu">
           <button class="btn-edit-product text-primary mb-2">Edit</button>
           <button class="btn-delete-product text-warning">Delete</button>
         </div>

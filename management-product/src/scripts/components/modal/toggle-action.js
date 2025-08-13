@@ -7,13 +7,13 @@ class ActionModalToggle {
 
   // Init event listener
   init() {
-    document.addEventListener("click", (e) => this.handleDocumentClick(e));
+    document.addEventListener("click", (e) => this.handleClickShowAction(e));
   }
 
   // Handle click show Action modal
-  handleDocumentClick(e) {
+  handleClickShowAction(e) {
     this.actionButton = e.target.closest(".btn-action-modal");
-    this.actionMenu = e.target.closest(".action-modal");
+    this.actionMenu = e.target.closest(".action-menu");
 
     if (this.actionButton) {
       this.toggleMenu(this.actionButton);
@@ -24,9 +24,7 @@ class ActionModalToggle {
 
   // Toggles the visibility of the Action modal
   toggleMenu() {
-    const productRow = this.actionButton.closest(".product-item-table-row");
-    const menu = productRow?.querySelector(".action-modal");
-
+    const menu = this.actionButton.parentElement.querySelector(".action-menu");
     if (!menu) return;
 
     const isMenuOpen = menu.classList.contains("show");
