@@ -133,13 +133,13 @@ class AddModalForm {
         <span>${brand}</span>
       </td>
       <td>$${parseFloat(price).toFixed(2)}</td>
-      <td>
-        <button>
+      <td class="relative">
+        <button class="btn-action-modal">
           <i class="fas fa-ellipsis-h text-2xl text-[#B0BAC9]"></i>
         </button>
-        <div class="hidden flex flex-col items-center justify-center w-28 h-20 rounded-lg border border-gray-300 shadow-sm bg-white">
-          <button class="text-sm font-semibold font-primary text-primary mb-2">Edit</button>
-          <button class="text-sm font-semibold font-primary text-warning">Delete</button>
+        <div class="action-menu">
+          <button class="btn-edit-product text-primary mb-2">Edit</button>
+          <button class="btn-delete-product text-warning">Delete</button>
         </div>
       </td>
     `;
@@ -157,7 +157,7 @@ class AddModalForm {
     });
 
     // Show table if there are products
-    if (this.products.length > 0) {
+    if (this.products.length > 0) { 
       this.productTable.classList.add('table');
     }
   }
