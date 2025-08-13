@@ -20,7 +20,8 @@
   @apply max-w-7xl mx-auto px-4;
 }
 
-@import './styles/addModalForm.css';
-@import './styles/deleteModal.css';
-@import './styles/loginForm.css';
-@import './styles/tableListProduct.css';
+@import './styles/add-modal-form.css';
+@import './styles/delete-modal.css';
+@import './styles/login-form.css';
+@import './styles/table-list-product.css';
+@import './styles/action-menu.css';
